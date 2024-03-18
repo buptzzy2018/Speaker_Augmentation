@@ -1,0 +1,64 @@
+# train configuration
+
+exp_dir: 'exp'
+
+# Data Loader
+batch_size: 256
+num_workers: 8
+min_frames: 200
+max_frames: 201
+eval_frames: 0
+max_seg_per_spk: 500 # Maximum number of utterances per speaker per epoch
+nPerSpeaker: 1 # Number of utterances per speaker per batch, only for metric learning based losses
+sample_rate: 16000
+aug_prob: 0.6
+speed_perturb: True
+VTLP: False
+num_vtlp: 3
+num_sp: 3
+warp_par:
+  - 0.9
+  - 1.1
+
+speed_par:
+  - 0.8
+  - 1.2
+
+# Training details
+max_epochs: 150
+loss_type: 'aamsoftmax' # softmax, amsoftmax, aamsoftmax, sphereface2
+nnet_type: 'ResNet34' # TDNN, ECAPA_TDNN, ResNet34, ResNet34SE, ResNet34SEL, CAMPPlus
+pooling_type: 'ASP'
+eval_interval: 5
+keep_loss_weight: False # Whether to keep the loss weight when loading the model
+
+# Optimizer
+learning_rate: 0.01
+lr_step_size: 5
+lr_gamma: 0.9
+auto_lr: False
+warm_up_epoch: 5
+
+# Loss functions
+margin: 0.2
+scale: 32
+margin_scheduler:
+  update_margin: True
+  initial_margin: 0.0
+  final_margin: 0.2
+  increase_start_epoch: 20
+  fix_start_epoch: 40
+  increase_type: 'exp'
+
+# Training and test data
+apply_metric: True
+data_key_level: 2 # CN-Celeb: 2, VoxCeleb: 3
+
+# Load and save
+save_interval: 5
+last_n: 100 # Change the `last_n` parameter in stage5 of run.sh correspondingly
+
+# Model definition
+n_mels: 80
+embedding_dim: 256
+

@@ -1,0 +1,15 @@
+pytorch-lightning==1.2.3
+numpy==1.23.5
+scipy==1.10.1
+pandas==1.5.3
+scikit-learn==0.24.1
+tqdm==4.65.0
+sox==1.4.1
+webrtcvad==2.0.10
+numba==0.56.4
+speechbrain==0.5.13
+PyYAML==6.0
+kaldiio==2.17.2
+fire==0.5.0
+pypeln==0.4.9
+protobuf==3.20.3
